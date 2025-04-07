@@ -1,0 +1,167 @@
+/*  1.Create a C++ class Number with integer data member. Write necessary member functions to overload the operator unary pre and post 
+increment ‘++’[15 Marks]  */
+
+#include <iostream.h>
+#include <conio.h>
+
+class Number {
+private:
+    int value;
+
+public:
+    Number(int v = 0) {
+        value = v;
+    }
+
+    void display() {
+        cout << "Value: " << value << endl;
+    }
+
+    // Pre-increment ( ++x )
+    Number operator++() {
+        ++value;
+        return *this;
+    }
+
+    // Post-increment ( x++ )
+    Number operator++(int) {
+        Number temp = *this;
+        value++;
+        return temp;
+    }
+};
+
+void main() {
+    clrscr();
+
+    Number num(5);
+
+    cout << "Original value: ";
+    num.display();
+
+    cout << "After Pre-Increment: ";
+    (++num).display();
+
+    cout << "After Post-Increment: ";
+    (num++).display();
+
+    cout << "Final Value after Post-Increment: ";
+    num.display();
+
+    getch();
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* 2. Create a C++ class for inventory of Mobiles with data members Model, Mobile Company, Color, Price and Quantity. Mobile 
+can be sold, if stock is available,
+ otherwise purchase will be made. Write necessary member functions for the following:
+i.To accept mobile details from user.
+ii. To sale a mobile. (Sale contains Mobile details & number of mobiles to be sold.)
+iii. To Purchase a Mobile. (Purchase contains Mobile details & number of mobiles to be purchased)[25 Marks]          */
+
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+class MobileInventory {
+private:
+    char model[20], company[20], color[20];
+    float price;
+    int quantity;
+
+public:
+    void acceptDetails() {
+	cout << "Enter Model: ";
+	cin >> model;
+	cout << "Enter Company: ";
+	cin >> company;
+	cout << "Enter Color: ";
+	cin >> color;
+	cout << "Enter Price: ";
+	cin >> price;
+	cout << "Enter Quantity: ";
+	cin >> quantity;
+    }
+
+    void sellMobile(int num) {
+	if (num > quantity) {
+	    cout << "\nNot enough stock!\n";
+	} else {
+	    quantity -= num;
+	    cout << "\nSold " << num << " mobile(s)!\n";
+	}
+    }
+
+    void purchaseMobile(int num) {
+	quantity += num;
+	cout << "\nAdded " << num << " mobile(s) to stock!\n";
+    }
+
+    void displayDetails() {
+	cout << "\nModel: " << model << ", Company: " << company << ", Color: " << color;
+	cout << "\nPrice: Rs." << price << ", Stock: " << quantity << "\n";
+    }
+};
+
+void main() {
+    clrscr();
+    MobileInventory mobile;
+    int choice, num;
+
+    mobile.acceptDetails();
+
+    do {
+	cout << "\n1. Sell Mobile  2. Purchase Mobile  3. Display Details  4. Exit\nChoice: ";
+	cin >> choice;
+
+	switch (choice) {
+	    case 1:
+		cout << "Enter quantity to sell: ";
+		cin >> num;
+		mobile.sellMobile(num);
+		break;
+	    case 2:
+		cout << "Enter quantity to purchase: ";
+		cin >> num;
+		mobile.purchaseMobile(num);
+		break;
+	    case 3:
+		mobile.displayDetails();
+		break;
+	    case 4:
+		cout << "Exiting...\n";
+		break;
+	    default:
+		cout << "Invalid choice! Try again.\n";
+	}
+    } while (choice != 4);
+
+    getch();
+}
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */

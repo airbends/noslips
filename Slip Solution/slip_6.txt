@@ -1,0 +1,178 @@
+/*   1.Write a C++ program create two Classes Square and Rectangle. Compare area of both the shapes using friend function. Accept appropriate data 
+members for both the classes.[15 Marks]        */
+
+#include<iostream.h>
+#include<conio.h>
+ class sqaure
+ {
+    public:
+        int s;
+        void getdata()
+        {
+        cout<<"Enter side of square : ";
+        cin>>s;
+        }
+ 
+        int calarea()
+        {
+        return(s*s);
+        }
+        friend void compare(int s,int r);
+ };
+ 
+ class rectangle
+ {
+    public:
+        int l,w;
+        void getdata()
+        {
+        cout<<"Enter Length of Rectangle : ";
+        cin>>l;
+        cout<<"Enter Breadth of Rectangle : ";
+        cin>>w;
+        }
+ 
+        int calarea()
+        {
+        return(l*w);
+        }
+ 
+        friend void compare(int s,int r);
+ };
+ 
+ void compare(int s,int r)
+ {
+ if(s>r)
+ {
+ cout<<"\nThe area of sqaure is greater than area of rectangle"<<endl;
+ }
+ else
+ {
+ cout<<"\nThe area of rectangle is greater than area of sqaure"<<endl;
+ }
+ }
+ 
+ int main()
+ {
+ int s_area,r_area;
+ sqaure s;
+ rectangle r;
+ 
+ s.getdata();
+ s_area=s.calarea();
+ 
+ r.getdata();
+ r_area=r.calarea();
+ 
+ cout<<"\nSquare : " <<s_area<<endl;
+ cout<<"Rectangle : "<<r_area<<endl;
+ 
+ compare(s_area,r_area);
+ return 0;
+ }
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*  2.Create a class Matrix
+{
+int **p,r,c;
+public: //member functions
+};
+Write necessary functions to :
+1. accept matrix elements
+2. display matrix elements
+3. calculate transpose of a matrix
+(use constructor and destructor)[25 Marks]         */
+
+
+#include <iostream>
+using namespace std;
+
+class Matrix {
+    int **p, r, c;
+
+public:
+    Matrix(int x, int y) {
+        r = x;
+        c = y;
+        p = new int*[r];  
+        for (int i = 0; i < r; i++){
+            p[i] = new int[c];  
+        } 
+    }
+    ~Matrix() {
+        for (int i = 0; i < r; i++)
+            delete[] p[i];  
+        delete[] p;  
+        cout << "\nDestructor invoked...!";
+    }
+    void accept() {
+        cout << "\nEnter matrix elements:\n";
+        for (int i = 0; i < r; i++)
+            for (int j = 0; j < c; j++)
+                cin >> p[i][j];
+    }
+
+    void display() {
+        cout << "\nMatrix elements:\n";
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++)
+                cout << p[i][j] << "\t";
+            cout << endl;
+        }
+    }
+
+    void transpose() {
+        cout << "\nTranspose of matrix:\n";
+        for (int i = 0; i < c; i++) {
+            for (int j = 0; j < r; j++)
+                cout << p[j][i] << "\t";
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    int m, n;
+    cout << "\nEnter matrix size (rows cols): ";
+    cin >> m >> n;
+
+    Matrix ob(m, n);
+    ob.accept();
+    ob.display();
+    ob.transpose();
+
+    return 0;
+}
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+/*           */

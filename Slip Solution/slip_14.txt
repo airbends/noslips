@@ -1,0 +1,114 @@
+
+/*   1.Write a C++ program to accept radius of a Circle. Calculate and display diameter, circumference as well as area of a Circle. 
+(Use Inline function)[15 Marks]        */
+#include <iostream.h>
+#include <conio.h>
+
+const float PI = 3.14159;
+
+class Circle {
+    float radius;
+
+public:
+    void accept() {
+        cout << "Enter radius of the circle: ";
+        cin >> radius;
+    }
+
+    inline float diameter() {
+        return 2 * radius;
+    }
+
+    inline float circumference() {
+        return 2 * PI * radius;
+    }
+
+    inline float area() {
+        return PI * radius * radius;
+    }
+
+    void display() {
+        cout << "\nDiameter: " << diameter();
+        cout << "\nCircumference: " << circumference();
+        cout << "\nArea: " << area();
+    }
+};
+
+int main() {
+    clrscr();  // Clear screen (Turbo C++ specific)
+
+    Circle c;
+    c.accept();  // Accept radius
+    c.display(); // Display results
+
+    getch();  // Wait for key press (Turbo C++ specific)
+    return 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*     2 .Create a C++ class MyString with data members a character pointer and str length. (Use new and delete operator).
+Write a C++ program using operator overloading to perform following operation:
+i.    !   To reverse the case of each alphabet from a given string.
+ii.   <  To compare length of two strings.
+iii.  +  To add constant ‘n’ to each alphabet of a string.[25 Marks]      */
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

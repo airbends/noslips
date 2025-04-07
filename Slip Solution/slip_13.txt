@@ -1,0 +1,104 @@
+
+/*1 .Write a C++ program to create a class Product with data members Product id, Product Name, Qty, Price. Write member functions to accept and 
+display Product information also display number of objects created for Product class. (Use Static data member and Static member function)[15 Marks]        */
+
+
+#include <iostream.h>
+#include <conio.h>
+
+class Product {
+    int productID;
+    char productName[50];
+    int qty;
+    float price;
+
+    static int count;
+
+public:
+    Product() {
+        count++;
+    }
+
+    void accept() {
+        cout << "\nEnter Product ID: ";
+        cin >> productID;
+        cout << "Enter Product Name: ";
+        cin >> productName;
+        cout << "Enter Quantity: ";
+        cin >> qty;
+        cout << "Enter Price: ";
+        cin >> price;
+    }
+
+    void display() {
+        cout << "\nProduct ID: " << productID;
+        cout << "\nProduct Name: " << productName;
+        cout << "\nQuantity: " << qty;
+        cout << "\nPrice: " << price;
+    }
+
+    static void showCount() {
+        cout << "\nTotal Products Created: " << count;
+    }
+};
+
+int Product::count = 0;
+
+int main() {
+    clrscr();
+
+    Product p1, p2;
+    
+    cout << "Enter details for first product:";
+    p1.accept();
+
+    cout << "\nEnter details for second product:";
+    p2.accept();
+
+    cout << "\nProduct Details:";
+    p1.display();
+    p2.display();
+
+    Product::showCount();
+
+    getch();
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*   2.Create a C++ class Cuboid with data members length, breadth, and height. Write necessary member functions for the following:
+i. void setvalues(float,float,float) to set values of data members.
+ii. void getvalues( ) to display values of data members.
+iii. float volume( ) to calculate and return the volume of cuboid.
+iv. float surface area( ) to calculate and return the surface area of cuboid.
+(Use Inline function)[25 Marks]        */
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */

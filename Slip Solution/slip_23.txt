@@ -1,0 +1,129 @@
+
+/* 1. Create a C++ class MyString with data member character pointer. Write a C++ program to accept and display a string. Overload operator to concatenate two 
+strings.[15 Marks]*/
+ 
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+class MyString {
+private:
+    char str[100];  
+public:
+    MyString(const char *s = "") {
+        strcpy(str, s);
+    }
+
+    MyString operator+(MyString obj) {
+        MyString temp;
+        strcpy(temp.str, str);
+        strcat(temp.str, obj.str);
+        return temp;
+    }
+
+    void display() {
+        cout << str << endl;
+    }
+};
+
+void main() {
+    clrscr();    
+    char input1[50], input2[50];
+    cout << "Enter first string: ";
+    cin >> input1;
+    cout << "Enter second string: ";
+    cin >> input2;
+
+    MyString str1(input1), str2(input2);
+    
+
+    cout << "Concatenated String: ";
+    str3.display();
+
+    getch(); 
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*  2.Create a C++ class Complex Number with data members real and imaginary. Write necessary functions:
+i. To accept Complex Number using constructor.
+ii. To display Complex Number in format [x + iy].
+iii. To add two Complex Numbers by using friend function.[25 Marks]         */
+
+
+#include <iostream.h>
+#include <conio.h>
+class Complex {
+private:
+    float real, imag;
+public:
+    Complex(float r = 0, float i = 0) {
+        real = r;
+        imag = i;
+    }
+    friend Complex addComplex(Complex c1, Complex c2);
+
+    void display() {
+        cout << "[" << real;
+        if (imag >= 0)
+            cout << " + " <<"i"<< imag << "]";
+        else
+            cout << " - " <<"i"<< -imag << "]";
+        cout << endl;
+    }
+};
+
+Complex addComplex(Complex c1, Complex c2) {
+    return Complex(c1.real + c2.real, c1.imag + c2.imag);
+}
+
+void main() {
+    clrscr();
+
+    float r1, i1, r2, i2;
+    cout << "Enter real and imaginary part of first complex number: ";
+    cin >> r1 >> i1;
+    
+    cout << "Enter real and imaginary part of second complex number: ";
+    cin >> r2 >> i2;
+
+    Complex c1(r1, i1), c2(r2, i2);
+    Complex sum = addComplex(c1, c2);
+
+    cout << "First Complex Number: ";
+    c1.display();
+    
+    cout << "Second Complex Number: ";
+    c2.display();
+    
+    cout << "Sum of Complex Numbers: ";
+    sum.display();
+
+    getch();
+}
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */

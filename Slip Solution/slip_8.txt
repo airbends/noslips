@@ -1,0 +1,164 @@
+
+/*   1.Write a C++ program create a class Number, which contain static data member ‘cnt’ and member function ‘Display()’. Display() should print number of 
+times display operation is performed irrespective of the object responsible for calling Display().[15 Marks] */
+
+
+#include<iostream.h>
+#include<conio.h>
+class Number{
+  static int cnt;
+  public:
+     void display(){
+      cout<<"\nDisplay Function Is called:" <<cnt <<"time";
+      cnt++;
+     }
+};
+int Number::cnt=1;
+int main(){
+ Number ob1,ob2;
+ ob1.display();
+ ob1.display();
+ ob2.display();
+ ob2.display();
+ return 0;
+}
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*   2.Create a C++ class Person with data members Person name, Mobile number, Age, City. Write necessary member functions for the following:
+i. Search the mobile number of given person.
+ii. Search the person name of given mobile number.
+iii. Search all person details of given city.
+(Use function overloading)[25 Marks]        */
+
+
+
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+class Person {
+    char name[50], city[50], mobile[15];
+    int age;
+
+public:
+    void accept() {
+        cout << "\nEnter Name: ";
+        cin >> name;
+        cout << "Enter Mobile Number: ";
+        cin >> mobile;
+        cout << "Enter Age: ";
+        cin >> age;
+        cout << "Enter City: ";
+        cin >> city;
+    }
+
+    void display() {
+        cout << "\nName: " << name;
+        cout << "\nMobile: " << mobile;
+        cout << "\nAge: " << age;
+        cout << "\nCity: " << city << "\n";
+    }
+
+    void search(char personName[]) {
+        if (strcmp(name, personName) == 0) {
+            cout << "\nMobile Number: " << mobile << "\n";
+        }
+    }
+
+    void searchByMobile(char mobileNumber[]) {
+        if (strcmp(mobile, mobileNumber) == 0) {
+            cout << "\nName: " << name << "\n";
+        }
+    }
+
+    void searchByCity(char cityName[]) {
+        if (strcmp(city, cityName) == 0) {
+            display();
+        }
+    }
+};
+
+void main() {
+    clrscr(); // Clear screen for Turbo C++
+
+    int n;
+    cout << "Enter number of persons: ";
+    cin >> n;
+
+    Person persons[10]; // Fixed-size array (Turbo C++ does not support dynamic arrays)
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter details for person " << i + 1 << ":\n";
+        persons[i].accept();
+    }
+
+    int choice;
+    char searchValue[50];
+
+    do {
+        cout << "\nMenu:\n1. Search Mobile Number by Name\n2. Search Name by Mobile Number\n3. Search Persons in a City\n4. Exit\nEnter Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "\nEnter Name: ";
+                cin >> searchValue;
+                for (int i = 0; i < n; i++) {
+                    persons[i].search(searchValue);
+                }
+                break;
+
+            case 2:
+                cout << "\nEnter Mobile Number: ";
+                cin >> searchValue;
+                for (int i = 0; i < n; i++) {
+                    persons[i].searchByMobile(searchValue);
+                }
+                break;
+
+            case 3:
+                cout << "\nEnter City: ";
+                cin >> searchValue;
+                for (int i = 0; i < n; i++) {
+                    persons[i].searchByCity(searchValue);
+                }
+                break;
+
+            case 4:
+                cout << "\nExiting...\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice!\n";
+        }
+    } while (choice != 4);
+
+    getch(); // Wait for user input before closing
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*           */

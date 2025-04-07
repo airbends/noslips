@@ -1,0 +1,100 @@
+
+
+/*Q1:Write a C++ program to interchange values of two integer numbers. (Use call by reference)[15 Marks]         */
+
+#include<iostream.h>
+#include<conio.h>
+
+void swap(int &a, int &b){
+ int temp=a;
+ a=b;
+ b=temp;
+}
+int main(){
+ int a, b;
+ clrscr();
+ cout<<"\nEnter the value of a :";cin>>a;
+ cout<<"\nEnter the value of b :";cin>>b;
+ cout<<"\nAfter swapping :";
+ swap(a,b);
+ cout<<"\nValue of a :"<<a;
+ cout<<"\nvalue of b :"<<b;
+ return 0;
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+/* 2.Write a C++ program to accept ‘n’ numbers from user through Command Line Argument. Store all Even 
+and Odd numbers in file “Even.txt” and “Odd.txt” respectively. [25 Marks]        */
+
+
+#include <iostream.h>
+#include <fstream.h>
+#include <conio.h>
+
+void main() {
+    clrscr();
+
+    int a[10] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, b[10];
+    
+    ofstream out("input.txt", ios::out | ios::binary);
+    if (!out) {
+        return;
+    }
+    out.write((char*)a, sizeof(a));
+    out.close();
+    
+    ifstream in("input.txt", ios::in | ios::binary);
+    if (!in) {
+        return;
+    }
+    in.read((char*)b, sizeof(b));
+    in.close();
+    
+    ofstream fp1("even.txt", ios::out);
+    ofstream fp2("odd.txt", ios::out);
+    if (!fp1 || !fp2) {
+        return;
+    } 
+    
+    for (int i = 0; i < 10; i++) {
+        if (b[i] % 2 == 0) {
+            fp1 << b[i] << " ";
+        } else {
+            fp2 << b[i] << " ";
+        }
+    }
+
+    fp1.close();
+    fp2.close();
+    
+    getch();
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*           */

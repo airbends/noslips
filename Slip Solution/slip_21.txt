@@ -1,0 +1,217 @@
+
+
+/* 1 . Create a C++ class Employee with data members Emp id, Emp Name, Company Name and Salary. Write member functions to accept and display 
+Employee information. Design User defined Manipulator to print Salary. (For Salary set right justification, maximum width to 7 and 
+fill remaining spaces with ‘*’)[15 Marks]          */
+
+#include <iostream.h>
+#include <iomanip.h>
+#include <conio.h>
+
+class Employee {
+private:
+    int empId;
+    char empName[50], companyName[50];
+    float salary;
+
+public:
+    void accept() {
+        cout << "Enter Employee ID: ";
+        cin >> empId;
+        cout << "Enter Employee Name: ";
+        cin >> empName;
+        cout << "Enter Company Name: ";
+        cin >> companyName;
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+
+    void display() {
+	cout << "\nEmployee ID: " << empId;
+	cout << "\nEmployee Name: " << empName;
+	cout << "\nCompany Name: " << companyName;
+	cout << "\nSalary: " << formatSalary << salary << endl;
+    }
+
+    friend ostream& formatSalary(ostream& out);
+};
+
+ostream& formatSalary(ostream& out) {
+    out << setfill('*') << setw(7) << ios::right;
+    return out;
+}
+
+void main() {
+    clrscr();
+
+    Employee emp;
+    emp.accept();
+
+    cout << "\nEmployee Details:\n";
+    emp.display();
+
+    getch();
+}
+
+
+
+
+
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+ 
+class employee
+{
+    char ename[10],cname[10];
+    int empid,salary;
+    public:
+        void accept()
+        {
+            cout<<"\nEnter employee id : ";
+            cin>>empid;
+            cout<<"Enter employee name : ";
+            cin>>ename;
+            cout<<"Enter company name : ";
+            cin>>cname;
+            cout<<"Enter salary : ";
+            cin>>salary;
+        }
+ 
+        void display()
+        {
+            cout<<"\n\nEmployee Id : "<<empid;
+            cout<<"\nEmployee Name : "<<ename;
+            cout<<"\nCompany Name : "<<cname;
+            cout.width(7);
+            cout.fill('*');
+            cout.right;
+            cout<<"\nSalary : "<<setw(7)<<salary;
+        }
+};
+ 
+int main()
+{
+    employee *e;
+    int i,n;
+    clrscr();
+    cout<<"\nEnter number of employee : ";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        e[i].accept();
+    }
+ 
+    for(i=0;i<n;i++)
+    {
+        e[i].display();
+    }
+ 
+    getch();
+    return 0;
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*   2.Create a C++ class for a two dimensional points. Write necessary member functions to accept & display the point object. Overload the
+ following operators:
+
+ Operator            Example        Purpos
++ (Binary)           P3=P1+P2       Adds coordinates of point p1 and p2.
+-(Unary)  			 -P1 			Negates coordinates of point p1
+*(Binary)     		 P2=P1*n		Multiply coordinates of point p1 by constant ‘n ‘.[25 Marks]        */
+
+
+#include <iostream.h>
+#include <conio.h>
+
+class Point {
+private:
+    int x, y;
+public:
+    Point(int a = 0, int b = 0) {
+        x = a;
+        y = b;
+    }
+
+    void accept() {
+        cout << "Enter x and y coordinates: ";
+        cin >> x >> y;
+    }
+
+    void display() {
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
+
+    Point operator+(Point p) {
+        return Point(x + p.x, y + p.y);
+    }
+
+    Point operator-() {
+        return Point(-x, -y);
+    }
+
+    Point operator*(int n) {
+        return Point(x * n, y * n);
+    }
+};
+
+void main() {
+    clrscr();
+    
+    Point p1, p2, p3, p4;
+    int n;
+
+    cout << "Enter first point:\n";
+    p1.accept();
+    
+    cout << "Enter second point:\n";
+    p2.accept();
+    
+    cout << "Enter a constant for multiplication: ";
+    cin >> n;
+
+    p3 = p1 + p2;
+    p4 = p1 * n;
+    
+    cout << "\nAddition of points: ";
+    p3.display();
+    
+    cout << "Negation of first point: ";
+    (-p1).display();
+    
+    cout << "Multiplication of first point with " << n << ": ";
+    p4.display();
+
+    getch();
+}
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */

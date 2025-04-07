@@ -1,0 +1,139 @@
+
+/*   1.Consider the following C++ class class Person { char Name [20]; charAddr [30]; float Salary; float tax amount; public: // member functions };
+Calculate tax amount by checking salary of a person
+For salary <=20000 tax rate=0
+For salary>20000|| <=40000 tax rate =5% of salary.
+For salary>40000 tax rate=10% of salary[15 Marks]        */
+
+
+#include<iostream>
+#include<conio.h>
+ using namespace std;
+class person
+{
+    char name[20];
+    char addr[20];
+    float sal,tax;
+    public:
+        void accept()
+        {
+        cout<<"Enter Name : ";
+        cin>>name;
+        cout<<"Enter Address : ";
+        cin>>addr;
+        cout<<"Enter Salary : ";
+        cin>>sal;
+        }
+ 
+        void display()
+        {
+        cout<<"\n\n-----Person information-----";
+        cout<<"\nPerson Name : "<<name;
+        cout<<"\nPerson Address : "<<addr;
+        cout<<"\nPerson Salary : "<<sal;
+        cout<<"\nTax is : "<<tax;
+        }
+ 
+        void cal_tax(){
+	        if(sal<=20000){
+	        	tax=0;
+	        }
+	        else if(sal>20000 && sal<=40000){
+	        	tax=(sal*5)/100;
+	        }
+	        else if(sal>40000){
+	        	tax=(sal*10)/100;
+	        }
+   		}
+};
+ 
+int main()
+{
+person p;
+
+p.accept();
+p.cal_tax();
+p.display();
+
+return 0;
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*   2.Create a C++ class Time with data members Hours, Minutes and Seconds.
+Write necessary member functions for the following: (Use Objects as arguments)
+1. To accept a time.
+2. To display a time In format hh:mm:ss.
+3. To find difference between two time and display it in format hh:mm:ss.[25 Marks]        */
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class time
+{
+    int h,m,s;
+    public:
+        void accept();
+        void display();
+        time operator - (time t2);
+};
+ 
+void time::accept()
+{
+    cout<<"\nEnter Hour, Minutes and Seconds : ";
+    cin>>h>>m>>s;
+}
+ 
+void time::display()
+{
+    cout<<"\nTime is  : "<<h<<":"<<m<<":"<<s<<endl;
+}
+ 
+time time::operator - (time t2){
+	    time t;
+	    t.h=h-t2.h;
+	    t.m=m-t2.m;
+	    t.s=s-t2.s;
+	    return t;
+	}
+ 
+int main()
+{
+time t1,t2,t3;
+t1.accept();
+t1.display();
+t2.accept();
+t2.display();
+t3=t1.operator -(t2);//t3=t1-t2;
+cout<<"\nTime1-Time2\n";
+t3.display();
+return 0;
+}
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*           */
